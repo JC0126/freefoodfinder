@@ -1,8 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/xHnRfY9D)
-# Django Practice Assessment
+This is a copy of the free food finder app I developed in CS 3240: Advanced Software Development during Fall 2023 at the University of Virginia.
 
-__Name:__
+ Contributors: Betsy Altenburger(hjc6uh), Jordan Burton(jeb4em), Aditya Kak(mbf3zk), and Aryan Medam(ucy7un)
 
-__Computing ID:__
-
- 
+ Licensed under MIT license
