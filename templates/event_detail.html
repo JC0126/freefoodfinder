@@ -1,0 +1,69 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+      <style>
+      .bigger-text {
+        font-size: 35px; 
+}
+        body{
+            background-color: #e0eefa;
+        }
+        
+
+        .jumbotron {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #aabfe1;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .btn-floating:hover {
+            background-color: rgba(72, 118, 244, 0.443);
+        }
+
+        .btn-floating {
+            border: 1px solid #4978ed;
+        }
+
+        .btn-floating:hover {
+            background-color: #4978ed;
+        }
+    div {
+        padding-bottom: 10px;
+    }
+
+    </style>
+<html>
+
+<body>
+<!--<div class="jumbotron jumbotron-fluid">-->
+<!--  <div class="container">-->
+<!--    <h3 class="display-4">Free Food Events</h3>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+  <h1 style ="padding-top: 30px;">{{ object.event_title }}</h1> <br>
+            <b>Event description:</b> {{ event.event_description }}<br>
+             <b>This event is available to:</b> {{ academic_years }}<br>
+              <b>Event start time:</b> {{ event.event_start_date }}<br>
+                <b>Event end time:</b> {{ event.event_end_date }}<br>
+                <b>Address:</b> {{ address }}<br>
+  </div>
+</div>
+
+
+</body>
+</html>
+{% endblock %}

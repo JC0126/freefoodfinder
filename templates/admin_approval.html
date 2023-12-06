@@ -1,0 +1,87 @@
+<!--  https://www.youtube.com/watch?v=FzV_Py68Y_I-->
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
+<style>
+       body {
+        background-color: #e0eefa;
+      }
+
+
+        .jumbotron {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #aabfe1;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .btn-floating:hover {
+            background-color: rgba(72, 118, 244, 0.443);
+        }
+
+        .btn-floating {
+            border: 1px solid #4978ed;
+        }
+
+        .btn-light {
+            background-color: #aabfe1;
+        }
+    h3 {
+        padding-bottom: 10px;
+    }
+</style>
+<body>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h3>Admin Approval</h3>
+    <h5>Check the box to approve an event and hit 'Update Approval' to save!</h5>
+
+    <form action = "" method="POST">
+        {% csrf_token %}
+
+    <button class = 'btn btn-light' type = 'submit' >Update Approval</button>
+        <br><br>
+    <table class = "table table-striped table-hover table-bordered">
+        <thread>
+            <tr>
+                <th scope = "col">Event Name</th>
+                <th scope = "col">Approved</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for event in event_list %}
+            <tr>
+                <td><a href="{% url 'food_finder_app:event-detail' event.id %}"> {{ event.event_title }}</a></td>
+                <td>
+                    {% if event.approved %}
+                    <div class = "form-check">
+                        <input class = "form-check-input" type = "checkbox" checked="checked" value = {{event.id}} name="boxes">
+                    </div>
+                    {% else %}
+                    <div class = "form-check">
+                        <input class = "form-check-input" type = "checkbox" value = {{event.id}} name="boxes">
+                    </div>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<br/>
+
+    </form>
+        </div></div>
+<br/>
+<br/>
+</body>
+</html>
+{% endblock %}

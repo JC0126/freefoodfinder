@@ -1,0 +1,99 @@
+
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+
+<style>
+    body {
+        background-color: #e0eefa;
+      }
+      
+        
+        .jumbotron {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #aabfe1;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .btn-floating:hover {
+            background-color: rgba(72, 118, 244, 0.443);
+        }
+
+        .btn-floating {
+            border: 1px solid #4978ed;
+        }
+
+        .btn-floating:hover {
+            background-color: #4978ed;
+        }
+    h3 {
+        padding-bottom: 10px;
+    }
+  </style>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h3 class="display-4">Free Food Events Happening Now</h3>
+    {% if cur_events%}
+    <ul>
+    {% for event in cur_events %}
+        {% if event.approved %}
+          <a href="{% url 'food_finder_app:event-detail' event.id %}" class="list-group-item list-group-item-action" style="width: 240px;" aria-current="true">
+              <div class="d-flex w-100 justify-content-between text-primary">
+                <h5 class="mb-1 "> {{event.event_title}} </h5>
+              </div>
+            <p class="mb-1 text-dark"> {{event.event_start_date}}</p>
+<!--              <p class="mb-1 text-dark"> {{event.event_end_date}}</p>-->
+          </a>
+        {% else %}
+                <p>No events are available.</p>
+
+        {% endif %}
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No events are available.</p>
+    {% endif %}
+</div>
+</div>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h3 class="display-4">Free Food Events Coming Up</h3>
+    {% if future_events%}
+    <ul>
+    {% for event in future_events %}
+        {% if event.approved %}
+          <a href="{% url 'food_finder_app:event-detail' event.id %}" class="list-group-item list-group-item-action" style="width: 240px;" aria-current="true">
+              <div class="d-flex w-100 justify-content-between text-primary">
+                <h5 class="mb-1 "> {{event.event_title}} </h5>
+              </div>
+            <p class="mb-1 text-dark"> {{event.event_start_date}}</p>
+<!--              <p class="mb-1 text-dark"> {{event.event_end_date}}</p>-->
+          </a>
+        {%else%}
+        <p>No events are available.</p>
+        {%endif%}
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No events are available.</p>
+    {% endif %}
+    
+</div>
+</div>
+
+</body>
+</html>
+{% endblock %}
